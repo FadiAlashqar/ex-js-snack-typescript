@@ -15,6 +15,43 @@ else if (typeof dato === 'number') {
 else if (typeof dato === 'boolean') {
   console.log(dato ? 'Sì' : 'No')
 }
+else if (typeof dato === null) {
+  console.log('Il dato è vuoto')
+}
+else if (Array.isArray(dato)) {
+  console.log(dato.length)
+}
 else {
   console.log('Tipo non supportato')
 }
+
+// Crea un type alias Dipendente che rappresenta un lavoratore con i seguenti dati:
+// nome → stringa
+// cognome → stringa
+// annoNascita → numero
+// sesso → Può essere solo "m" o "f".
+// anniDiServizio (array di numeri, es. [2014, 2015, 2017, 2018])
+
+type Dipendente = {
+  nome: string,
+  cognome: string,
+  annoNascita: number,
+  sesso: 'm' | 'f',
+  anniDiServizio: number[],
+  readonly emailAziendale: string,
+  contratto: 'indeterminato' | 'determinato' | 'freelance'
+}
+
+const dipendente2: Dipendente = {
+  nome: 'Fadi',
+  cognome: 'Al ashqar',
+  annoNascita: 3333333333,
+  sesso: 'f',
+  anniDiServizio: [2025, 2024, 2023],
+  emailAziendale: 'mail-azienda@mail.com',
+  contratto: 'determinato'
+}
+
+
+console.log(dipendente2)
+
