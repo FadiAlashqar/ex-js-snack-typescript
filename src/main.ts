@@ -39,19 +39,47 @@ type Dipendente = {
   sesso: 'm' | 'f',
   anniDiServizio: number[],
   readonly emailAziendale: string,
-  contratto: 'indeterminato' | 'determinato' | 'freelance'
+  contratto: 'indeterminato' | 'determinato' | 'freelance',
+} & (Developer | ProjectManager)
+
+type Developer = {
+  livelloEsperienza: 'Junior' | 'Mid' | 'Senior',
+  linguaggi?: string[],
+  certificazioni: string[]
+}
+
+type ProjectManager = {
+  teamSize: number | null,
+  budgetGestito?: number,
+  stakeholderPrincipali: string[]
 }
 
 const dipendente2: Dipendente = {
   nome: 'Fadi',
   cognome: 'Al ashqar',
-  annoNascita: 3333333333,
-  sesso: 'f',
+  annoNascita: 2001,
+  sesso: 'm',
   anniDiServizio: [2025, 2024, 2023],
   emailAziendale: 'mail-azienda@mail.com',
-  contratto: 'determinato'
+  contratto: 'determinato',
+  teamSize: null,
+  stakeholderPrincipali: []
+
+}
+
+const dipendente3: Dipendente = {
+  nome: 'Mattia',
+  cognome: 'rossi',
+  annoNascita: 2000,
+  sesso: 'm',
+  anniDiServizio: [2025, 2024, 2023, 2022, 2021],
+  emailAziendale: 'mail-azienda@mail.com',
+  contratto: 'indeterminato',
+  livelloEsperienza: 'Mid',
+  linguaggi: ['Java', 'Python'],
+  certificazioni: []
 }
 
 
-console.log(dipendente2)
+console.log(dipendente2, dipendente3)
 
